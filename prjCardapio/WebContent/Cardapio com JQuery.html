@@ -104,7 +104,27 @@
 				</div>
 	
 				<br>
-	            <button type="button" class="btn btn-primary" id="btnCalc">Calcular</button>
+	            <button type="button" class="btn btn-primary" id="btnCalc" data-toggle="modal" data-target="#myModal">Calcular</button>
+	            
+	            <div class="modal fade" id="myModal" role="dialog">
+				    <div class="modal-dialog">
+				    
+				      <!-- Modal content-->
+				      <div class="modal-content">
+				        <div class="modal-header">
+				          <button type="button" class="close" data-dismiss="modal">&times;</button>
+				          <h4 class="modal-title">Resultado</h4>
+				        </div>
+				        <div class="modal-body">
+				          <p Id="modText"></p>
+				        </div>
+				        <div class="modal-footer">
+				          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+				        </div>
+				      </div>
+				      
+				    </div>
+				  </div>
 	            
 	            <p id="demo"></p>
 	            
@@ -114,10 +134,6 @@
         
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
-		
-	    
-	        
-	   
 		
 		$("#btnCalc").click(function(){
 			var soma, desconto, acompanha;
@@ -143,7 +159,8 @@
 		    if (document.getElementById("frut").checked==true)
 		        soma = soma + 5; 
 		
-		    
+		    $("#modText").text("O total eh: " + soma + " reais.\nCom o desconto eh: " + (soma - soma*desconto) 
+		    		+ " reais.\nO desconto eh: " + desconto*100 + "%" + "\nObservacoes: " + $("#obs").text());
 		    $("#demo").text("O total eh: " + soma + " reais.\nCom o desconto eh: " + (soma - soma*desconto) 
 		    		+ " reais.\nO desconto eh: " + desconto*100 + "%" + "\nObservacoes: " + $("#obs").text());
 		});
