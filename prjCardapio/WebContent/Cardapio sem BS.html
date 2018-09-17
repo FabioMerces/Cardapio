@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Cardapio</title>
+</head>
+<body>
+    <script>
+        function calcVal(){
+            var soma, desconto, acompanha, texto;
+            soma = 2+7;
+            acompanha = 0;
+
+            if (document.getElementById("masa").checked==true)
+                soma = 60;
+            else if (document.getElementById("carn").checked==true)
+                soma = 80;
+            else if (document.getElementById("pexe").checked==true)
+                soma = 70;
+            else
+                soma = 0;
+
+            if (document.getElementById("sala").checked==true)
+               soma = soma + 3;
+            if (document.getElementById("legu").checked==true)
+                soma = soma + 3;
+            if (document.getElementById("faro").checked==true)
+                soma = soma + 2;
+            if (document.getElementById("frit").checked==true)
+                soma = soma + 4;
+            if (document.getElementById("frut").checked==true)
+                soma = soma + 5; 
+
+            if (document.getElementById("conv1").selected==true)
+                desconto = 0.05;
+            else if (document.getElementById("conv2").selected==true)
+                desconto = 0.10;
+            else if (document.getElementById("conv3").selected==true)
+                desconto = 0.15;
+            else if (document.getElementById("conv4").selected==true)
+                desconto = 0.25;
+            else
+                desconto = 0;
+            
+              texto = document.getElementById("obs").value;
+
+            alert("O total eh: " + soma + " reais.\nCom o desconto eh: " + (soma - soma*desconto) 
+            		+ " reais.\nO desconto eh: " + desconto*100 + "%" + "\nObservacoes: " + texto);
+        }
+    </script>
+	<div>
+		<h1>Escolha seu prato</h1>
+	</div>
+	<div>
+		<p>Prato principal: </p>
+		<form >
+			<input type="radio" name="mistura" value="60" Id="masa"> Massa<br>
+			<input type="radio" name="mistura" value="80" Id="carn"> Carne<br>
+			<input type="radio" name="mistura" value="70" Id="pexe"> Peixe<br>
+            
+            <p>Adicionais: </p> 
+            <input type="checkbox" name="acompanhamento1" value="1" Id="sala"> Salada<br>
+            <input type="checkbox" name="acompanhamento2" value="1.5" Id="legu"> Legumes<br>
+            <input type="checkbox" name="acompanhamento3" value="1.2" Id="faro"> Farofa<br>
+            <input type="checkbox" name="acompanhamento4" value="3" Id="frit"> Fritas<br>
+            <input type="checkbox" name="acompanhamento5" value="5" Id="frut"> Frutas<br>
+
+			<p>Convenio: </p> 
+			<select Id="selected">
+			  <option value="10" Id="conv1">Fatec</option>
+			  <option value="12" Id="conv2">Prefeitura</option>
+			  <option value="15" Id="conv3">Func. Publico</option>
+              <option value="25" Id="conv4">Aposentado</option>
+              <option value="0">Nenhum</option>
+			</select>
+
+			<p>Observacoes</p>
+			<textarea rows="4" cols="50" Id="obs">shiguidoo</textarea>
+			<br>
+			<button onclick="calcVal()">Enviar</button>
+        </form>
+        <p id="demo"></p>
+
+	</div>
+	
+</body>
+</html>
