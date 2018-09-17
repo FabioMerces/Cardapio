@@ -159,6 +159,17 @@
 		    if (document.getElementById("frut").checked==true)
 		        soma = soma + 5; 
 		
+		    if (document.getElementById("conv1").selected==true)
+                desconto = 0.05;
+            else if (document.getElementById("conv2").selected==true)
+                desconto = 0.10;
+            else if (document.getElementById("conv3").selected==true)
+                desconto = 0.15;
+            else if (document.getElementById("conv4").selected==true)
+                desconto = 0.25;
+            else
+                desconto = 0;
+		    
 		    $("#modText").text("O total eh: " + soma + " reais.\nCom o desconto eh: " + (soma - soma*desconto) 
 		    		+ " reais.\nO desconto eh: " + desconto*100 + "%" + "\nObservacoes: " + $("#obs").text());
 		    $("#demo").text("O total eh: " + soma + " reais.\nCom o desconto eh: " + (soma - soma*desconto) 
